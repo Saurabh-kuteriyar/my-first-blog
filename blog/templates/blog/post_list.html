@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Saurabh blog</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">Saurabh Blog</a></h1>
-        </header>
+<header>
+    <h1><a href="/">Saurabh ruBlog</a></h1>
+</header>
 
-        <article>
-            <time>published: 19.12.2022, 23:07</time>
-            <h2><a href="">My first projecct</a></h2>
-            <p>We will talk about the sentiment analysis, in which i have used twitter data about 2019 indian election.I have build a model which classify the tweets in three clases (Positive, Negative and Neutral)</p>
-        </article>
-
-        <article>
-            <time>published: 19.12.2022, 23:07</time>
-            <h2><a href="">My second project</a></h2>
-            <p>In second project i have worked on real time facial emootion detection which capture the facial expression of the person and classify them in seveen classes.</p>
-        </article>
-    </body>
-</html>
+{% for post in posts %}
+    <article>
+        <time>published: {{ post.published_date }}</time>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </article>
+{% endfor %}
